@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thyeleaf/layout">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="style/style.css">
+  <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Eventos App</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="/eventos" class="brand-logo logo">Eventos</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+            <a href="/cadastrarEvento" class="waves-effect waves-light btn"><i
+                class="material-icons left">add_circle_outline</i>Cadastrar Evento</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <br>
+  <br>
+  <table class="container">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Local</th>
+        <th>Data</th>
+        <th>Horário</th>
+        <th>Deletar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="evento : ${eventos}">
+        <td><a th:href="@{/{codigo}(codigo=${evento.codigo})}"><span th:text="${evento.nome}"></span></a></td>
+        <td><a href=""></a><span th:text="${evento.local}"></span></a></td>
+        <td><a href=""></a><span th:text="${evento.data}"></span></a></td>
+        <td><a href=""></a><span th:text="${evento.horario}"></span></a></td>
+        <td><a class="waves-effect waves-light btn"
+            th:href="${(#mvc.url('EC#deletarEvento').arg(0, evento.codigo)).build()}"><i
+              class="material-icons">delete_forever</i></a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+
+</html>

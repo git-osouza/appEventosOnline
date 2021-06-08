@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thyeleaf/layout">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style/style.css">
+  <title>Eventos App</title>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="" class="brand-logo logo">Detalhes evento</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+            <a href="/eventos" class="waves-effect waves-light btn"><i
+                class="material-icons left">format_list_bulleted</i>Lista
+              de eventos</a>
+          </li>
+          <li>
+            <a href="/cadastrarEvento" class="waves-effect waves-light btn"><i
+                class="material-icons left">add_circle_outline</i>Cadastrar Evento</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <br>
+  <br>
+
+  <div th:each="evento : ${evento}" class="container detalhesEvento">
+    <div class="row">
+      <p>Nome: <span th:text="${evento.nome}"></span></p>
+      <p>Local: <span th:text="${evento.local}"></span></p>
+      <p>Data: <span th:text="${evento.data}"></span></p>
+      <p>Horário: <span th:text="${evento.horario}"></span></p>
+
+    </div>
+  </div>
+
+  <th:block th:include="mensagemValidacao"></th:block>
+
+  <form class="container formConvidado" method="post">
+    <div class="input-field col s6">
+      <input placeholder="Nome Completo" id="first_name" type="text" class="validate" name="nomeConvidado">
+      <label for="first_name">Nome convidado:</label>
+    </div>
+    <div class="input-field col s6">
+      <input placeholder="RG do convidado" id="first_name" type="text" class="validate" name="rg">
+      <label for="first_name">RG convidado:</label>
+    </div>
+    <button type="submit" class="waves-effect waves-light btn" title="Salvar"><i
+        class="material-icons left">person_add</i>Adicionar</button>
+  </form>
+
+
+  <br>
+  <br>
+  <table class="container tableConvidado">
+    <thead>
+      <tr>
+        <th>Nome convidado</th>
+        <th>RG convidado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="convidado : ${convidados}">
+        <td><span th:text="${convidado.nomeConvidado}"></span></td>
+        <td><span th:text="${convidado.rg}"></span></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+
+</html>

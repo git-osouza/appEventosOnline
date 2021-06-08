@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thyeleaf/layout">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style/style.css">
+  <title>Eventos App</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="/cadastrarEvento" class="brand-logo logo">Cadastro de eventos</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+            <a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">format_list_bulleted
+              </i>Lista de eventos</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <br>
+  <br>
+
+  <th:block th:include="mensagemValidacao"></th:block>
+
+  <div class="formEvento container">
+    <form class="container" method="post">
+      <div class="input-field col s6">
+        <input placeholder="Nome do evento" id="first_name" type="text" class="validate" name="nome">
+        <label for="first_name">Nome:</label>
+      </div>
+      <div class="input-field col s6">
+        <input placeholder="Local do evento" id="first_name" type="text" class="validate" name="local">
+        <label for="first_name">Local:</label>
+      </div>
+      <div class="input-field col s6">
+        <input placeholder="Placeholder" id="first_name" type="date" class="validate" name="data">
+        <label for="first_name">Data:</label>
+      </div>
+      <div class="input-field col s6">
+        <input placeholder="Horário evento" id="first_name" type="time" class="validate" name="horario">
+        <label for="first_name">Horário:</label>
+      </div>
+      <button type="submit" class="btn-floating pulse" title="Salvar"><i class="material-icons left">save</i></button>
+    </form>
+  </div>
+
+  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+
+</html>
