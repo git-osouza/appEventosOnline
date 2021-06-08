@@ -2,7 +2,7 @@ Aplicação Java Web com Spring Boot para cadastro de eventos online.
 
 Tenologias utilizadas neste curso:
 
- - Java 11 com ecosistema Spring Boot.
+ - Java 11 com eco sistema Spring Boot.
  - Banco Mysql.
  - Materialize para front-end.
 
