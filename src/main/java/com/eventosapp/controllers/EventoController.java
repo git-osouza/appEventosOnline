@@ -21,7 +21,6 @@ public class EventoController {
 	
 	@Autowired
 	private EventoRepository er;
-
 	@Autowired
 	private ConvidadoRepository cr;
 	
